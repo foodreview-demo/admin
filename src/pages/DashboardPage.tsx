@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { adminApi } from '../api/client';
-import { Users, FileText, Store, Flag } from 'lucide-react';
+import { Users, FileText, Store, Flag, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function DashboardPage() {
@@ -15,7 +15,8 @@ export function DashboardPage() {
     { label: '전체 사용자', value: stats?.totalUsers || 0, icon: Users, color: 'blue' },
     { label: '전체 리뷰', value: stats?.totalReviews || 0, icon: FileText, color: 'green' },
     { label: '등록된 음식점', value: stats?.totalRestaurants || 0, icon: Store, color: 'purple' },
-    { label: '대기 중 신고', value: stats?.pendingReports || 0, icon: Flag, color: 'red', link: '/reports' },
+    { label: '대기 중 리뷰 신고', value: stats?.pendingReports || 0, icon: Flag, color: 'red', link: '/reports' },
+    { label: '대기 중 채팅 신고', value: stats?.pendingChatReports || 0, icon: MessageSquare, color: 'orange', link: '/chat-reports' },
   ];
 
   const colorClasses = {
@@ -23,6 +24,7 @@ export function DashboardPage() {
     green: 'bg-green-50 text-green-600',
     purple: 'bg-purple-50 text-purple-600',
     red: 'bg-red-50 text-red-600',
+    orange: 'bg-orange-50 text-orange-600',
   };
 
   if (isLoading) {
@@ -37,7 +39,7 @@ export function DashboardPage() {
     <div>
       <h1 className="text-2xl font-bold text-gray-800 mb-6">대시보드</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
         {statCards.map((card) => {
           const content = (
             <div

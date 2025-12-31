@@ -20,7 +20,7 @@ export const useAuth = create<AuthState>((set) => ({
     try {
       const response = await authApi.login(email, password);
       if (response.success) {
-        localStorage.setItem('admin_token', response.data.accessToken);
+        localStorage.setItem('admin_token', response.data.token);
 
         // 사용자 정보 조회
         const userResponse = await authApi.getMe();

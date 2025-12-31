@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081/api';
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -62,6 +62,23 @@ export const adminApi = {
   },
   processReport: async (id: number, data: { action: 'RESOLVE' | 'REJECT'; adminNote?: string; deleteReview?: boolean }) => {
     const response = await api.post(`/admin/reports/${id}/process`, data);
+    return response.data;
+  },
+  // 채팅 신고 API
+  getChatReports: async (status?: string, page = 0, size = 10) => {
+    const params = new URLSearchParams();
+    if (status) params.append('status', status);
+    params.append('page', String(page));
+    params.append('size', String(size));
+    const response = await api.get(`/admin/chat-reports?${params}`);
+    return response.data;
+  },
+  getChatReport: async (id: number) => {
+    const response = await api.get(`/admin/chat-reports/${id}`);
+    return response.data;
+  },
+  processChatReport: async (id: number, data: { action: 'RESOLVE' | 'REJECT'; adminNote?: string }) => {
+    const response = await api.post(`/admin/chat-reports/${id}/process`, data);
     return response.data;
   },
 };

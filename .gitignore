@@ -23,7 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment
+# Environment - 로컬 개발용만 제외 (민감 정보 포함)
 .env
 .env.local
-.env.production
+.env.*.local
+# .env.production은 Git에 포함 (배포 빌드용)

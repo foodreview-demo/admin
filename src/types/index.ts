@@ -40,7 +40,39 @@ export interface AdminStats {
   totalReviews: number;
   totalRestaurants: number;
   pendingReports: number;
+  pendingChatReports: number;
 }
+
+export interface ChatReport {
+  id: number;
+  reporterId: number;
+  reporterName: string;
+  reporterEmail: string;
+  reportedUserId: number;
+  reportedUserName: string;
+  reportedUserEmail: string;
+  chatRoomId: number;
+  chatRoomUuid: string;
+  messageId?: number;
+  messageContent?: string;
+  reason: ChatReportReason;
+  reasonDescription: string;
+  description?: string;
+  status: ReportStatus;
+  statusDescription: string;
+  adminNote?: string;
+  processedByName?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export type ChatReportReason =
+  | 'HARASSMENT'
+  | 'SPAM'
+  | 'SEXUAL_HARASSMENT'
+  | 'FRAUD'
+  | 'INAPPROPRIATE'
+  | 'OTHER';
 
 export interface PageResponse<T> {
   content: T[];

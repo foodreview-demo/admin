@@ -3,6 +3,7 @@ import { useAuth } from '../hooks/useAuth';
 import {
   LayoutDashboard,
   Flag,
+  MessageSquare,
   LogOut,
   Menu,
   X,
@@ -12,6 +13,7 @@ import { useState } from 'react';
 const navItems = [
   { path: '/', label: '대시보드', icon: LayoutDashboard },
   { path: '/reports', label: '신고 관리', icon: Flag },
+  { path: '/chat-reports', label: '채팅 신고', icon: MessageSquare },
 ];
 
 export function Layout() {

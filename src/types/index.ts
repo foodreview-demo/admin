@@ -29,7 +29,9 @@ export interface Report {
 export type ReportReason =
   | 'SPAM'
   | 'INAPPROPRIATE'
-  | 'FALSE_INFO'
+  | 'FAKE_REVIEW'
+  | 'NO_RECEIPT'
+  | 'HARASSMENT'
   | 'COPYRIGHT'
   | 'OTHER';
 

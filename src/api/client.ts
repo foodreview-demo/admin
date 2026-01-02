@@ -81,4 +81,20 @@ export const adminApi = {
     const response = await api.post(`/admin/chat-reports/${id}/process`, data);
     return response.data;
   },
+  // 영수증 검토 API
+  getPendingReceiptReviews: async (page = 0, size = 10) => {
+    const params = new URLSearchParams();
+    params.append('page', String(page));
+    params.append('size', String(size));
+    const response = await api.get(`/admin/reviews/receipts/pending?${params}`);
+    return response.data;
+  },
+  approveReceipt: async (reviewId: number) => {
+    const response = await api.post(`/admin/reviews/${reviewId}/receipt/approve`);
+    return response.data;
+  },
+  rejectReceipt: async (reviewId: number) => {
+    const response = await api.post(`/admin/reviews/${reviewId}/receipt/reject`);
+    return response.data;
+  },
 };

@@ -7,6 +7,7 @@ import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { ChatReportsPage } from './pages/ChatReportsPage';
+import { ReceiptReviewsPage } from './pages/ReceiptReviewsPage';
 import './index.css';
 
 const queryClient = new QueryClient({
@@ -68,6 +69,7 @@ function AppRoutes() {
         <Route index element={<DashboardPage />} />
         <Route path="reports" element={<ReportsPage />} />
         <Route path="chat-reports" element={<ChatReportsPage />} />
+        <Route path="receipt-reviews" element={<ReceiptReviewsPage />} />
       </Route>
     </Routes>
   );

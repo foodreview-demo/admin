@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   Flag,
   MessageSquare,
+  Receipt,
   LogOut,
   Menu,
   X,
@@ -14,6 +15,7 @@ const navItems = [
   { path: '/', label: '대시보드', icon: LayoutDashboard },
   { path: '/reports', label: '신고 관리', icon: Flag },
   { path: '/chat-reports', label: '채팅 신고', icon: MessageSquare },
+  { path: '/receipt-reviews', label: '영수증 검토', icon: Receipt },
 ];
 
 export function Layout() {

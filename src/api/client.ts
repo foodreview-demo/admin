@@ -97,4 +97,44 @@ export const adminApi = {
     const response = await api.post(`/admin/reviews/${reviewId}/receipt/reject`);
     return response.data;
   },
+  // 음식점 승인 API
+  getPendingRestaurants: async (page = 0, size = 10) => {
+    const params = new URLSearchParams();
+    params.append('page', String(page));
+    params.append('size', String(size));
+    const response = await api.get(`/admin/restaurants/pending?${params}`);
+    return response.data;
+  },
+  getRestaurant: async (id: number) => {
+    const response = await api.get(`/admin/restaurants/${id}`);
+    return response.data;
+  },
+  approveRestaurant: async (id: number) => {
+    const response = await api.post(`/admin/restaurants/${id}/approve`);
+    return response.data;
+  },
+  rejectRestaurant: async (id: number, reason: string) => {
+    const response = await api.post(`/admin/restaurants/${id}/reject`, { reason });
+    return response.data;
+  },
+  // 번개모임 관리 API
+  getGatherings: async (status?: string, page = 0, size = 10) => {
+    const params = new URLSearchParams();
+    if (status) params.append('status', status);
+    params.append('page', String(page));
+    params.append('size', String(size));
+    const response = await api.get(`/admin/gatherings?${params}`);
+    return response.data;
+  },
+  getFailedRefunds: async (page = 0, size = 10) => {
+    const params = new URLSearchParams();
+    params.append('page', String(page));
+    params.append('size', String(size));
+    const response = await api.get(`/admin/gatherings/failed-refunds?${params}`);
+    return response.data;
+  },
+  markRefundCompleted: async (participantId: number) => {
+    const response = await api.post(`/admin/gatherings/failed-refunds/${participantId}/complete`);
+    return response.data;
+  },
 };

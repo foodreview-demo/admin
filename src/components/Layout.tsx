@@ -5,6 +5,9 @@ import {
   Flag,
   MessageSquare,
   Receipt,
+  Store,
+  UsersRound,
+  AlertTriangle,
   LogOut,
   Menu,
   X,
@@ -16,6 +19,9 @@ const navItems = [
   { path: '/reports', label: '신고 관리', icon: Flag },
   { path: '/chat-reports', label: '채팅 신고', icon: MessageSquare },
   { path: '/receipt-reviews', label: '영수증 검토', icon: Receipt },
+  { path: '/pending-restaurants', label: '음식점 승인', icon: Store },
+  { path: '/gatherings', label: '번개모임 관리', icon: UsersRound },
+  { path: '/failed-refunds', label: '환금 실패', icon: AlertTriangle },
 ];
 
 export function Layout() {

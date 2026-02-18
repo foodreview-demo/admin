@@ -43,6 +43,27 @@ export interface AdminStats {
   totalRestaurants: number;
   pendingReports: number;
   pendingChatReports: number;
+  pendingReceiptReviews: number;
+  pendingRestaurants: number;
+}
+
+export interface PendingRestaurant {
+  id: number;
+  name: string;
+  category: string;
+  categoryDisplay: string;
+  address: string;
+  region: string;
+  district?: string;
+  neighborhood?: string;
+  signboardImageUrl: string;
+  approvalStatus: 'PENDING' | 'APPROVED' | 'REJECTED';
+  approvalStatusDisplay: string;
+  latitude?: number;
+  longitude?: number;
+  createdAt: string;
+  registeredById?: number;
+  registeredByName?: string;
 }
 
 export interface ChatReport {

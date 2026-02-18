@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { adminApi } from '../api/client';
-import { Users, FileText, Store, Flag, MessageSquare } from 'lucide-react';
+import { Users, FileText, Store, Flag, MessageSquare, Receipt, Building2, UsersRound, AlertTriangle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function DashboardPage() {
@@ -17,6 +17,10 @@ export function DashboardPage() {
     { label: '등록된 음식점', value: stats?.totalRestaurants || 0, icon: Store, color: 'purple' },
     { label: '대기 중 리뷰 신고', value: stats?.pendingReports || 0, icon: Flag, color: 'red', link: '/reports' },
     { label: '대기 중 채팅 신고', value: stats?.pendingChatReports || 0, icon: MessageSquare, color: 'orange', link: '/chat-reports' },
+    { label: '대기 중 영수증 검토', value: stats?.pendingReceiptReviews || 0, icon: Receipt, color: 'yellow', link: '/receipt-reviews' },
+    { label: '대기 중 음식점 승인', value: stats?.pendingRestaurants || 0, icon: Building2, color: 'cyan', link: '/pending-restaurants' },
+    { label: '진행 중 번개모임', value: stats?.activeGatherings || 0, icon: UsersRound, color: 'indigo', link: '/gatherings' },
+    { label: '환금 실패 건', value: stats?.failedRefunds || 0, icon: AlertTriangle, color: 'pink', link: '/failed-refunds' },
   ];
 
   const colorClasses = {
@@ -25,6 +29,10 @@ export function DashboardPage() {
     purple: 'bg-purple-50 text-purple-600',
     red: 'bg-red-50 text-red-600',
     orange: 'bg-orange-50 text-orange-600',
+    yellow: 'bg-yellow-50 text-yellow-600',
+    cyan: 'bg-cyan-50 text-cyan-600',
+    indigo: 'bg-indigo-50 text-indigo-600',
+    pink: 'bg-pink-50 text-pink-600',
   };
 
   if (isLoading) {

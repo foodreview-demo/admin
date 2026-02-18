@@ -8,6 +8,9 @@ import { DashboardPage } from './pages/DashboardPage';
 import { ReportsPage } from './pages/ReportsPage';
 import { ChatReportsPage } from './pages/ChatReportsPage';
 import { ReceiptReviewsPage } from './pages/ReceiptReviewsPage';
+import { PendingRestaurantsPage } from './pages/PendingRestaurantsPage';
+import { GatheringsPage } from './pages/GatheringsPage';
+import { FailedRefundsPage } from './pages/FailedRefundsPage';
 import './index.css';
 
 const queryClient = new QueryClient({
@@ -70,6 +73,9 @@ function AppRoutes() {
         <Route path="reports" element={<ReportsPage />} />
         <Route path="chat-reports" element={<ChatReportsPage />} />
         <Route path="receipt-reviews" element={<ReceiptReviewsPage />} />
+        <Route path="pending-restaurants" element={<PendingRestaurantsPage />} />
+        <Route path="gatherings" element={<GatheringsPage />} />
+        <Route path="failed-refunds" element={<FailedRefundsPage />} />
       </Route>
     </Routes>
   );
